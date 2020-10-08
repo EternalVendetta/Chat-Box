@@ -4,15 +4,16 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 
 // Info to Connect DataBase
-const firebaseApp = firebase.initializeApp({
+const app = firebase.initializeApp({
     apiKey: "AIzaSyBlqKiLjL6GehLBQnp2LjEkh5sL90xYshg",
     authDomain: "eternal-chat-box.firebaseapp.com",
-    databaseURL: "https://eternal-chat-box.firebaseio.com"
-})
+    databaseURL: "https://eternal-chat-box.firebaseio.com",
+    projectId: "eternal-chat-box",
+});
 
-// Link Rebase to Firebase
-const base = Rebase.createClass(firebase.database);
+const dataBase = firebase.database(app);
+const base = Rebase.createClass(dataBase);
 
-export { firebaseApp }
+export { dataBase }
 
 export default base

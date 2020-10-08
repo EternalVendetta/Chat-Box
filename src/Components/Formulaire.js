@@ -31,17 +31,20 @@ export class Formulaire extends Component {
       this.setState({ message: '', characters: length });
     }
 
+    // Send Message When Click SEND
     handleSubmit(e) {
        e.preventDefault();
        this.createMessage()
     }
 
+    // Remove 1 each time we put Characters in TextArea 
     handleChange(e) {
         const message = e.target.value;
         const length = this.props.length - message.length
         this.setState({ message, characters: length })
     }
-
+    
+    // Send Message When Push ENTER
     handleKeyUp(e) {
         if (e.key === 'Enter') {
             this.createMessage(); 
